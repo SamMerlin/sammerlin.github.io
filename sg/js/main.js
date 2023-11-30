@@ -3,7 +3,7 @@ var popwGames = ["funnyShooter2", "bigTowerTinySquare", "bigIceTowerTinySquare",
 var recGames = ["superhot", "catNinja", "tableTanks", "learnToFly3", "achievementUnlocked2", "motox3m", "raftWarsHtml5", "impossibleQuiz2", "eaglercraft"];
 var newGames = ["hydroStorm2", "burninRubber5XS", "cobrazIo", "criticalStrike", "papasPizzeria", "papasPancakeria", "papasPastaria", "papasHotDoggeria", "papasFreezeria", "papasDonuteria", "papasCupcakeria", "papasCheeseria", "papasBurgeria", "papasBakeria", "pandemic2", "pandemic", "ageOfWar", "fancyPantsAdventure2", "effingWorms2", "duckLife", "duckLife2", "duckLife3", "duckLife4", "superhot", "getawayShootout", "defendTheTank", "portalFlash", "battleForGondor", "bloxors", "worldsEasiestGame", "worldsHardestGame2", "worldsHardestGame3", "worldsHardestGame4", "gunMayhem", "gunMayhem2", "effingWormsXmas", "rockGarden", "emuJS", "stickRPG", "motherLoad", "clickerHeroes", "baconMayDie", "basketBallStars", "funnyShooter2", "polywar2", "raftWars2Html5", "raftWarsHtml5","pixelCombat2", "miniMetro", "bigIceTowerTinySquare", "bigTowerTinySquare"];
 var games;
-var api = "https://api." + location.hostname + ":3000";
+//var api = "https://api." + location.hostname + ":3000";
 var socket;
 var searchSuggestionFocus = false;
 if(window.self == window.top){
