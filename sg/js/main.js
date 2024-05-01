@@ -7,12 +7,12 @@ if(window.self == window.top){
     var a = window.open("about:blank", "_blank");
     if(navigator.userAgent.includes('Firefox')){
         a.addEventListener("DOMContentLoaded", function () {
-            a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>My Drive - Google Drive</title><link rel="icon" type="image/png" href="https://' + document.location.host  + '/sg/icon.webp"><style>body {margin: 0;}</style><body onload=' + "'" + 'document.getElementsByTagName("iframe")[0].focus();' + "'" + '><iframe style="height:100%; width:100%; top:0px; left:0; position:absolute;  z-index:1;" src="https://' + window.location.hostname + '" frameborder="0"></iframe></body></html>';
+            a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>My Drive - Google Drive</title><link rel="icon" type="image/png" href="https://' + document.location.host  + '/sg/icon.webp"><style>body {margin: 0;}</style><body onload=\'window.addEventListener("beforeunload",(event)=>{event.preventDefault();event.returnValue = true;});document.getElementsByTagName("iframe")[0].focus();\'" + '><iframe style="height:100%; width:100%; top:0px; left:0; position:absolute;  z-index:1;" src="https://' + window.location.hostname + '" frameborder="0"></iframe></body></html>';
             window.location.replace("https://classroom.google.com/");
         });
     }else{
     if(a != null){
-        a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>My Drive - Google Drive</title><link rel="icon" type="image/png" href="https://' + document.location.host  + '/sg/icon.webp"><style>body {margin: 0;}</style><body onload=' + "'" + 'document.getElementsByTagName("iframe")[0].focus();' + "'" + '><iframe style="height:100%; width:100%; top:0px; left:0; position:absolute;  z-index:1;" src="https://' + window.location.hostname + '" frameborder="0"></iframe></body></html>';
+        a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>My Drive - Google Drive</title><link rel="icon" type="image/png" href="https://' + document.location.host  + '/sg/icon.webp"><style>body {margin: 0;}</style><body onload=\'window.addEventListener("beforeunload",(event)=>{event.preventDefault();event.returnValue = true;});document.getElementsByTagName("iframe")[0].focus();\'" + '><iframe style="height:100%; width:100%; top:0px; left:0; position:absolute;  z-index:1;" src="https://' + window.location.hostname + '" frameborder="0"></iframe></body></html>';
         window.location.replace("https://classroom.google.com/");
     }
 }
@@ -69,7 +69,7 @@ async function addGamesFromList(list, gameType) {
         //set gameinfo to gameid of the data
         let gameInfo = games[gameName];
         //if it uses prox then make sure your on medsci
-        if(gameInfo.openfunc != "abProx" || window.location.hostname == 'sg.medscience.cl'){
+        if(gameInfo.openfunc != "abProx" || window.location.hostname == 'sg.medscience.cl' || window.location.hostname == 'sg.robofan.ro'){
         //if it is on sccreen
         if (index < 6) {
             //add the game with all the info and no extra properties
@@ -88,7 +88,7 @@ async function addGamesFromListById(list, gameType) {
         let gamename = Object.entries(games).find(([useless, game]) => game.id == gameId)[0];
         //set gameinfo to gameid of the data
         let gameInfo = games[gamename];
-        if(gameInfo.openfunc != "abProx" || window.location.hostname == 'sg.medscience.cl'){
+        if(gameInfo.openfunc != "abProx" || window.location.hostname == 'sg.medscience.cl' || window.location.hostname == 'sg.robofan.ro'){
 
         //if it is on sccreen
         if (index < 6) {
@@ -124,11 +124,11 @@ async function abGame(gameid) {
         var a = window.open("about:blank", "_blank");
         if(navigator.userAgent.includes('Firefox')){
             a.addEventListener("DOMContentLoaded", function () {
-                a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>Classes</title><link rel="icon" type="image/png" href="https://ssl.gstatic.com/classroom/favicon.png"><style>body,html{margin:0;overflow:hidden}</style><body onload=' + "'" + 'document.getElementsByTagName("iframe")[0].focus();' + "'" + '><iframe style="height:100%;width:100%;border:0;top:0px;left:0;position:absolute;z-index:1;overflow:hidden" src="' + window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/games/' + gameid + '/index.html" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-scripts allow-downloads allow-same-origin" loading="eager" allowfullscreen allowpaymentrequest></iframe></body></html>';
+                a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>Classes</title><link rel="icon" type="image/png" href="https://ssl.gstatic.com/classroom/favicon.png"><style>body,html{margin:0;overflow:hidden}</style><body onload=\'window.addEventListener("beforeunload",(event)=>{event.preventDefault();event.returnValue = true;});document.getElementsByTagName("iframe")[0].focus();\'><iframe style="height:100%;width:100%;border:0;top:0px;left:0;position:absolute;z-index:1;overflow:hidden" src="' + window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/games/' + gameid + '/index.html" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-scripts allow-downloads allow-same-origin" loading="eager" allowfullscreen allowpaymentrequest></iframe></body></html>';
                 socket.emit('game', gameid);    
             });
         }else{
-        a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>Classes</title><link rel="icon" type="image/png" href="https://ssl.gstatic.com/classroom/favicon.png"><style>body,html{margin:0;overflow:hidden}</style><body onload=' + "'" + 'document.getElementsByTagName("iframe")[0].focus();' + "'" + '><iframe style="height:100%;width:100%;border:0;top:0px;left:0;position:absolute;z-index:1;overflow:hidden" src="' + window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/games/' + gameid + '/index.html" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-scripts allow-downloads allow-same-origin" loading="eager" allowfullscreen allowpaymentrequest></iframe></body></html>';
+        a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>Classes</title><link rel="icon" type="image/png" href="https://ssl.gstatic.com/classroom/favicon.png"><style>body,html{margin:0;overflow:hidden}</style><body onload=\'window.addEventListener("beforeunload",(event)=>{event.preventDefault();event.returnValue = true;});document.getElementsByTagName("iframe")[0].focus();\'><iframe style="height:100%;width:100%;border:0;top:0px;left:0;position:absolute;z-index:1;overflow:hidden" src="' + window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/games/' + gameid + '/index.html" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-scripts allow-downloads allow-same-origin" loading="eager" allowfullscreen allowpaymentrequest></iframe></body></html>';
         socket.emit('game', gameid);    window.location.host
         }
 }
@@ -136,11 +136,11 @@ async function abProx(gameid) {
     var a = window.open("about:blank", "_blank");
     if(navigator.userAgent.includes('Firefox')){
         a.addEventListener("DOMContentLoaded", function () {
-            a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>Classes</title><link rel="icon" type="image/png" href="https://ssl.gstatic.com/classroom/favicon.png"><style>body,html{margin:0;overflow:hidden}</style><body onload=' + "'" + 'document.getElementsByTagName("iframe")[0].focus();' + "'" + '><iframe style="height:100%;width:100%;border:0;top:0px;left:0;position:absolute;z-index:1;overflow:hidden" src="' + window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/games/' + gameid + '/index.html" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-scripts allow-downloads allow-same-origin" loading="eager" allowfullscreen allowpaymentrequest></iframe></body></html>';
+            a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>Classes</title><link rel="icon" type="image/png" href="https://ssl.gstatic.com/classroom/favicon.png"><style>body,html{margin:0;overflow:hidden}</style><body onload=\'window.addEventListener("beforeunload",(event)=>{event.preventDefault();event.returnValue = true;});document.getElementsByTagName("iframe")[0].focus();\'><iframe style="height:100%;width:100%;border:0;top:0px;left:0;position:absolute;z-index:1;overflow:hidden" src="' + window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/games/' + gameid + '/index.html" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-scripts allow-downloads allow-same-origin" loading="eager" allowfullscreen allowpaymentrequest></iframe></body></html>';
             socket.emit('game', gameid);    
         });
     }else{
-    a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>Classes</title><link rel="icon" type="image/png" href="https://ssl.gstatic.com/classroom/favicon.png"><style>body,html{margin:0;overflow:hidden}</style><body onload=' + "'" + 'document.getElementsByTagName("iframe")[0].focus();' + "'" + '><iframe style="height:100%;width:100%;border:0;top:0px;left:0;position:absolute;z-index:1;overflow:hidden" src="' + window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/games/' + gameid + '/index.html" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-scripts allow-downloads allow-same-origin" loading="eager" allowfullscreen allowpaymentrequest></iframe></body></html>';
+    a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>Classes</title><link rel="icon" type="image/png" href="https://ssl.gstatic.com/classroom/favicon.png"><style>body,html{margin:0;overflow:hidden}</style><body onload=\'window.addEventListener("beforeunload",(event)=>{event.preventDefault();event.returnValue = true;});document.getElementsByTagName("iframe")[0].focus();\'><iframe style="height:100%;width:100%;border:0;top:0px;left:0;position:absolute;z-index:1;overflow:hidden" src="' + window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/games/' + gameid + '/index.html" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-scripts allow-downloads allow-same-origin" loading="eager" allowfullscreen allowpaymentrequest></iframe></body></html>';
     socket.emit('game', gameid);    window.location.host
     }
 }
@@ -148,11 +148,11 @@ async function abFlash(gameid) {
     var a = window.open("about:blank", "_blank");
     if(navigator.userAgent.includes('Firefox')){
         a.addEventListener("DOMContentLoaded", function () {
-            a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>Classes</title><link rel="icon" type="image/png" href="https://ssl.gstatic.com/classroom/favicon.png"><style>body,html{margin:0;overflow:hidden}</style><body onload=' + "'" + 'document.getElementsByTagName("iframe")[0].focus();' + "'" + '><iframe style="height:100%;width:100%;border:0;top:0px;left:0;position:absolute;z-index:1;overflow:hidden" src="' + window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/dfl/?f=' + gameid + '" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-scripts allow-downloads allow-same-origin" loading="eager" allowfullscreen allowpaymentrequest></iframe></body></html>';
+            a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>Classes</title><link rel="icon" type="image/png" href="https://ssl.gstatic.com/classroom/favicon.png"><style>body,html{margin:0;overflow:hidden}</style><body onload=\'window.addEventListener("beforeunload",(event)=>{event.preventDefault();event.returnValue = true;});document.getElementsByTagName("iframe")[0].focus();\'><iframe style="height:100%;width:100%;border:0;top:0px;left:0;position:absolute;z-index:1;overflow:hidden" src="' + window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/dfl/?f=' + gameid + '" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-scripts allow-downloads allow-same-origin" loading="eager" allowfullscreen allowpaymentrequest></iframe></body></html>';
             socket.emit('game', gameid);
         });
     }else{
-    a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>Classes</title><link rel="icon" type="image/png" href="https://ssl.gstatic.com/classroom/favicon.png"><style>body,html{margin:0;overflow:hidden}</style><body onload=' + "'" + 'document.getElementsByTagName("iframe")[0].focus();' + "'" + '><iframe style="height:100%;width:100%;border:0;top:0px;left:0;position:absolute;z-index:1;overflow:hidden" src="' + window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/dfl/?f=' + gameid + '" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-scripts allow-downloads allow-same-origin" loading="eager" allowfullscreen allowpaymentrequest></iframe></body></html>';
+    a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>Classes</title><link rel="icon" type="image/png" href="https://ssl.gstatic.com/classroom/favicon.png"><style>body,html{margin:0;overflow:hidden}</style><body onload=\'window.addEventListener("beforeunload",(event)=>{event.preventDefault();event.returnValue = true;});document.getElementsByTagName("iframe")[0].focus();\'><iframe style="height:100%;width:100%;border:0;top:0px;left:0;position:absolute;z-index:1;overflow:hidden" src="' + window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/dfl/?f=' + gameid + '" sandbox="allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-presentation allow-scripts allow-downloads allow-same-origin" loading="eager" allowfullscreen allowpaymentrequest></iframe></body></html>';
     socket.emit('game', gameid);  
     }  
 }
@@ -174,7 +174,7 @@ searchbar.addEventListener("keypress", function (event) {
                 if(game.openfunc == "abFlash"){
                     abFlash(game.id);
                     done = 1;
-                }else if(game.openfunc != "abProx" || window.location.hostname == 'sg.medscience.cl'){
+                }else if(game.openfunc != "abProx" || window.location.hostname == 'sg.medscience.cl' || window.location.hostname == 'sg.robofan.ro'){
                     abGame(game.id);
                 done = 1;
                 }
@@ -192,7 +192,7 @@ function liveSearch() {
                 //add sugjestions
                 if (searchSuggestions.innerHTML == "") {
                     searchSuggestions.insertAdjacentHTML("beforeend", '<div onclick="' + game.openfunc + '(' + "'" + game.id + "'" + ')" style="    background-color: rgba(255, 255, 255, 0.05);background-image:url(' + "'images/" + game.image + "'" + ');" id="searchSuggestion">' + game.name + '</div>');
-                }else if(game.openfunc != "abProx" || window.location.hostname == 'sg.medscience.cl'){
+                }else if(game.openfunc != "abProx" || window.location.hostname == 'sg.medscience.cl' || window.location.hostname == 'sg.robofan.ro'){
                     searchSuggestions.insertAdjacentHTML("beforeend", '<div onclick="' + game.openfunc + '(' + "'" + game.id + "'" + ')" style="background-image:url(' + "'images/" + game.image + "'" + ');" id="searchSuggestion">' + game.name + '</div>');
                 }
             }
