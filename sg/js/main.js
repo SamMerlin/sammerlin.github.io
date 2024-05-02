@@ -7,12 +7,12 @@ if(window.self == window.top){
     var a = window.open("about:blank", "_blank");
     if(navigator.userAgent.includes('Firefox')){
         a.addEventListener("DOMContentLoaded", function () {
-            a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>My Drive - Google Drive</title><link rel="icon" type="image/png" href="https://' + document.location.host  + '/sg/icon.webp"><style>body {margin: 0;}</style><body onload=\'window.addEventListener("beforeunload",(event)=>{event.preventDefault();event.returnValue = true;});document.getElementsByTagName("iframe")[0].focus();\'" + '><iframe style="height:100%; width:100%; top:0px; left:0; position:absolute;  z-index:1;" src="https://' + window.location.hostname + '" frameborder="0"></iframe></body></html>';
+            a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>My Drive - Google Drive</title><link rel="icon" type="image/png" href="https://' + document.location.host  + '/sg/icon.webp"><style>body {margin: 0;}</style><body onload=\'window.addEventListener("beforeunload",(event)=>{event.preventDefault();event.returnValue = true;});document.getElementsByTagName("iframe")[0].focus();\'><iframe style="height:100%; width:100%; top:0px; left:0; position:absolute;  z-index:1;" src="https://' + window.location.hostname + '" frameborder="0"></iframe></body></html>';
             window.location.replace("https://classroom.google.com/");
         });
     }else{
     if(a != null){
-        a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>My Drive - Google Drive</title><link rel="icon" type="image/png" href="https://' + document.location.host  + '/sg/icon.webp"><style>body {margin: 0;}</style><body onload=\'window.addEventListener("beforeunload",(event)=>{event.preventDefault();event.returnValue = true;});document.getElementsByTagName("iframe")[0].focus();\'" + '><iframe style="height:100%; width:100%; top:0px; left:0; position:absolute;  z-index:1;" src="https://' + window.location.hostname + '" frameborder="0"></iframe></body></html>';
+        a.document.documentElement.innerHTML = '<!DOCTYPE html><html><title>My Drive - Google Drive</title><link rel="icon" type="image/png" href="https://' + document.location.host  + '/sg/icon.webp"><style>body {margin: 0;}</style><body onload=\'window.addEventListener("beforeunload",(event)=>{event.preventDefault();event.returnValue = true;});document.getElementsByTagName("iframe")[0].focus();\'><iframe style="height:100%; width:100%; top:0px; left:0; position:absolute;  z-index:1;" src="https://' + window.location.hostname + '" frameborder="0"></iframe></body></html>';
         window.location.replace("https://classroom.google.com/");
     }
 }
