@@ -18,7 +18,7 @@ if(window.self == window.top){
 }
 }
  //show  popup
- if (localStorage.getItem("popup") != "stop") {
+ if (localStorage.getItem("popup2") != "stop") {
     document.getElementById("popup").style.display = "block";
 }
 async function run(loadedgames) {
@@ -69,7 +69,7 @@ async function addGamesFromList(list, gameType) {
         //set gameinfo to gameid of the data
         let gameInfo = games[gameName];
         //if it uses prox then make sure your on medsci
-        if(gameInfo.openfunc != "abProx" || window.location.hostname == 'sg.medscience.cl' || window.location.hostname == 'sg.robofan.ro'){
+        if(gameInfo.openfunc != "abProx" || window.location.hostname == 'gm.medscience.cl' || window.location.hostname == 'sg.robofan.ro'){
         //if it is on sccreen
         if (index < 6) {
             //add the game with all the info and no extra properties
@@ -88,7 +88,7 @@ async function addGamesFromListById(list, gameType) {
         let gamename = Object.entries(games).find(([useless, game]) => game.id == gameId)[0];
         //set gameinfo to gameid of the data
         let gameInfo = games[gamename];
-        if(gameInfo.openfunc != "abProx" || window.location.hostname == 'sg.medscience.cl' || window.location.hostname == 'sg.robofan.ro'){
+        if(gameInfo.openfunc != "abProx" || window.location.hostname == 'gm.medscience.cl' || window.location.hostname == 'sg.robofan.ro'){
 
         //if it is on sccreen
         if (index < 6) {
@@ -114,7 +114,7 @@ if (gameInfo.id.startsWith("/") == false) {
 async function closepopup(save) {
     document.getElementById("popup").style.display = "none";
     if (save == "yes") {
-        localStorage.setItem("popup", "stop");
+        localStorage.setItem("popup2", "stop");
     }
 }
 async function opendiscord() {
@@ -174,7 +174,7 @@ searchbar.addEventListener("keypress", function (event) {
                 if(game.openfunc == "abFlash"){
                     abFlash(game.id);
                     done = 1;
-                }else if(game.openfunc != "abProx" || window.location.hostname == 'sg.medscience.cl' || window.location.hostname == 'sg.robofan.ro'){
+                }else if(game.openfunc != "abProx" || window.location.hostname == 'gm.medscience.cl' || window.location.hostname == 'sg.robofan.ro'){
                     abGame(game.id);
                 done = 1;
                 }
@@ -192,7 +192,7 @@ function liveSearch() {
                 //add sugjestions
                 if (searchSuggestions.innerHTML == "") {
                     searchSuggestions.insertAdjacentHTML("beforeend", '<div onclick="' + game.openfunc + '(' + "'" + game.id + "'" + ')" style="    background-color: rgba(255, 255, 255, 0.05);background-image:url(' + "'images/" + game.image + "'" + ');" id="searchSuggestion">' + game.name + '</div>');
-                }else if(game.openfunc != "abProx" || window.location.hostname == 'sg.medscience.cl' || window.location.hostname == 'sg.robofan.ro'){
+                }else if(game.openfunc != "abProx" || window.location.hostname == 'gm.medscience.cl' || window.location.hostname == 'sg.robofan.ro'){
                     searchSuggestions.insertAdjacentHTML("beforeend", '<div onclick="' + game.openfunc + '(' + "'" + game.id + "'" + ')" style="background-image:url(' + "'images/" + game.image + "'" + ');" id="searchSuggestion">' + game.name + '</div>');
                 }
             }
