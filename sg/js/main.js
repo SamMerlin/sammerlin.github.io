@@ -18,7 +18,7 @@ if(window.self == window.top){
 }
 }
  //show  popup
- if (localStorage.getItem("popup2") != "stop") {
+ if (localStorage.getItem("popup2") != "stop" && window.location.hostname.includes("sg.medscience.cl")) {
     document.getElementById("popup").style.display = "block";
 }
 async function run(loadedgames) {
