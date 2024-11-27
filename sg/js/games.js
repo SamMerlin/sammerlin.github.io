@@ -221,8 +221,8 @@ var games = {
         "image": "bloonsTowerDefense4.webp",
         "openfunc": "abFlash"
     },
-    "/bloonsTowerDefense5": {
-        "id": "/248ff449-1e17-4e9a-a6b6-103cbc161525",
+    "bloonsTowerDefense5": {
+        "id": "248ff449-1e17-4e9a-a6b6-103cbc161525",
         "name": "Bloons Tower Defense 5",
         "image": "bloonsTowerDefense5.avif",
         "openfunc": "abFlash"
